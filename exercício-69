@@ -1,0 +1,70 @@
+''' This is a simple algorithym to simulate the people register and return a summary at the end of the program.
+    Goal: Practice command 'While' in Python '''
+
+print("\n**** Sistema de cadastro de pessoas ****")
+
+idademais = sexoM = sexoF = mulher_vinte = 0
+resp = 'OK'
+
+while True:
+
+    print("------------------------------")
+    while True:
+        idade = input("Informe a idade da pessoa: ")
+        if idade.isdigit():
+            idade = int(idade)
+            if idade >= 18:
+                idademais += 1
+            break
+        else:
+            print("\n >> {}Insira apenas números{} << \n".format('\033[47m', '\033[m'))
+
+    while True:
+        sexo = input("Informe o sexo da pessoa: [M/F]").upper()
+        if sexo == 'M':
+            sexoM += 1
+            print("------------------------------")
+            break
+        elif sexo == 'F':
+            sexoF += 1
+            if idade < 20:
+                mulher_vinte += 1
+            print("------------------------------")
+            break
+        else:
+            print("\n >> {}Utilize apenas as letras opcionais{} << \n".format('\033[47m', '\033[m'))
+
+    while True:
+        resp = input("Continuar cadastrando? [S/N]").upper()
+        if resp == 'S' or resp == 'N':
+            break
+        else:
+            print("\n >> {}Utilize apenas as letras opcionais{} << \n".format('\033[47m', '\033[m'))
+
+    if resp == 'N':
+        break
+
+print("\n╔═════════════════════════════ RESUMO DA OPERAÇÃO ═════════════════════════╗\n")
+
+if idademais == 0:
+    print("   Não existem pessoas com mais de 18 anos cadastradas no sistema.")
+elif idademais == 1:
+    print("   Existe apenas 1 pessoa com mais de 18 anos cadastrada no sistema.")
+else:
+    print("\n   Existem {} pessoas tem mais de 18 anos.".format(idademais))
+
+if sexoM == 0:
+    print("   Não existem pessoas do sexo masculino cadastradas no sistema.")
+elif sexoM == 1:
+    print("   Existe apenas 1 pessoa do sexo masculino cadastrada no sistema.")
+else:
+    print("   Existem {} homens cadastrados no sistema.".format(sexoM))
+
+if mulher_vinte == 0:
+    print("   Não existem mulheres com menos de 20 anos cadastradas no sistema.")
+elif mulher_vinte == 1:
+    print("   Consta no sistema o cadastro de apenas 1 mulher com menos de 20 anos.")
+else:
+    print("   Existem {} mulheres com menos de 20 anos cadastradas no sistema.".format(mulher_vinte))
+
+print("\n╚══════════════════════════════════════════════════════════════════════════╝ ")
