@@ -1,0 +1,28 @@
+from random import randint          # Aqui importamos o método 'randint' da classe random
+
+num1 = randint(1, 10)
+num2 = randint(1, 10)
+num3 = randint(1, 10)
+num4 = randint(1, 10)
+num5 = randint(1, 10)
+
+tup = (num1, num2, num3, num4, num5)    # Aqui geramos a tupla
+
+print("Os valores sorteados são:", end=" ")
+
+for c in range(len(tup)):
+    print(tup[c], end=" ")
+
+print("\nO maior valor sorteado é: {}".format(max(tup)))
+print("O menor valor sorteado é: {}".format(min(tup)))
+
+print("****************************************")
+
+from random import sample           # Aqui importamos o método 'sample' da classe random
+
+a = tuple(sample(range(10), 5))     # Aqui geramos a tupla com o método 'tuple' a partir do método 'sample' que escolhe 5 números aleatórios de um range de 1 a 10
+print("Os valores sorteados são:",a[0], a[1], a[2], a[3], a[4])
+print("O maior valor sorteado é: {}".format(max(a)))
+print("O menor valor sorteado é: {}".format(min(a)))
+
+# O mesmo programa é escrito com menos linhas de código
