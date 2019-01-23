@@ -1,10 +1,10 @@
-tup = ('Marca Texto', 8.99, 'Caderno', 10.90, 'Estojo', 2.59, 'Lápis', 1.00, 'Borracha', 0.89, 'Mochila', 59.99, 'Canenta', 1.50)
+tup = ('Tesoura', 4.69, 'Marca Texto', 8.99, 'Caderno', 10.90, 'Estojo', 2.59, 'Lápis', 1.00, 'Borracha', 0.89, 'Mochila', 59.99, 'Canenta', 1.50)
 
-print("----------------------------------------------")
-print("|             LISTAGEM DE PREÇOS             |")
-print("----------------------------------------------")
-print("|      Descrição do item        |   Preço    |")
-print("----------------------------------------------")
+print("-"*46)
+print("|", f'{"LISTAGEM DE PREÇOS":^42}', "|")
+print("-"*46)
+print("|", f'{"Descrição do item":^30}', "|", f'{"Preço":^9}', "|")
+print("-"*46)
 for c in range(0, len(tup), 2):
     print("|",tup[c], "."*(29-len(tup[c])), " R$", f'{tup[c+1]:>7.2f}', "|")
-print("----------------------------------------------")
+print("-"*46)
