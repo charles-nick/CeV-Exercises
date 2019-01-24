@@ -1,0 +1,36 @@
+''' Goal: Practice a little bit about the lists in Python'''
+
+valores = []
+
+for c in range(0, 5):
+    valores.append(int(input("Digite um valor inteiro: ")))
+
+count = 0
+print(f'\nO maior valor digitado foi o número {max(valores)}', end='')
+
+for c in range(0, len(valores)):
+    if max(valores) == valores[c]:
+        count += 1
+
+if count == 1:
+    print(f' e está na posição: {valores.index(max(valores))}...')
+else:
+    print(f' e está nas posições: ', end='')
+    for c in range(0, len(valores)):
+        if max(valores) == valores[c]:
+            print(f'{c}... ', end='')
+
+count= 0
+print(f'\nO menor valor digitado foi o número {min(valores)}', end='')
+
+for c in range(0, len(valores)):
+    if min(valores) == valores[c]:
+        count += 1
+
+if count == 1:
+    print(f' e está na posição: {valores.index(min(valores))}...')
+else:
+    print(f' e está nas posições: ', end='')
+    for c in range(0, len(valores)):
+        if min(valores) == valores[c]:
+            print(f'{c}... ', end='')
