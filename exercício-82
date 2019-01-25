@@ -1,0 +1,54 @@
+'''Goal: Practicing a little more of lists in Python.
+    Separate odd and even numbers.'''
+
+numeros = []
+pares = []
+impares = []
+cont = 0
+
+while True:
+    while True:
+        if cont == 0:
+            num = (str(input("Digite um número inteiro maior ou igual a zero: ")))
+            cont = 1
+        else:
+            num = (str(input("Digite outro número inteiro maior ou igual a zero: ")))
+        if num.isdigit():
+            num = int(num)
+            numeros.append(num)
+            break
+        else:
+            print("\n  >>  Digite apenas números  <<  \n\n", "-"*50)
+
+    while True:
+        perg = input("Deseja inserir outro número? [S/N]").upper()
+        if perg == 'N' or perg == 'S':
+            print("-" * 30)
+            break
+        else:
+            print("\n  >>  Digite apenas uma das alternativas possíveis  <<  \n\n", "-" * 50)
+
+    if perg == 'N':
+        break
+
+for c in range(0, len(numeros)):
+    if numeros[c] % 2 == 0:
+        pares.append(numeros[c])
+    else:
+        impares.append(numeros[c])
+
+print("\nVocê digitou os valores: ", numeros)
+
+if len(pares) == 0:
+    print("Não foram digitados números pares nesta lista")
+elif len(pares) == 1:
+    print(f'Um único número par foi digitado na lista: {pares}')
+else:
+    print(f'Os números pares são: {pares}')
+
+if len(impares) == 0:
+    print("Não foram digitados números ímpares nesta lista")
+elif len(impares) == 1:
+    print(f'Um único número ímpar foi digitado na lista: {impares}')
+else:
+    print(f'Os números ímpares são: {impares}')
