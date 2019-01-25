@@ -1,0 +1,43 @@
+numeros = []
+cont = 0
+
+while True:
+    while True:
+        if cont == 0:
+            num = (str(input("Digite um número inteiro maior ou igual a zero: ")))
+            cont = 1
+        else:
+            num = (str(input("Digite outro número inteiro maior ou igual a zero: ")))
+        if num.isdigit():
+            num = int(num)
+            numeros.append(num)
+            break
+        else:
+            print("\n  >>  Digite apenas números  <<  \n\n", "-"*50)
+
+    if len(numeros) >= 2:
+        for c in range(0, len(numeros)-1):
+            if numeros[-1] == numeros[c]:
+                print("\n  >>  O número {} já existe. Insira outro número  <<".format(numeros[-1]))
+                del numeros[-1]
+                print("\nSua lista atual é: ", numeros, "\n", "-"*30)
+                break
+            else:
+                if c == len(numeros)-2:
+                    print("Sua lista atual é: ", numeros, "\n", "-"*30)
+    else:
+        print("Sua lista atual é: ", numeros, "\n", "-"*30)
+
+    while True:
+        perg = input("Deseja inserir outro número? [S/N]").upper()
+        if perg == 'N' or perg == 'S':
+            print("-"*30)
+            break
+        else:
+            print("\n  >>  Digite apenas uma das alternativas possíveis  <<  \n\n", "-"*50)
+
+    if perg == 'N':
+        break
+
+numeros.sort()
+print("\nVocê digitou os valores: ", numeros)
