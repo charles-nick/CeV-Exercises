@@ -1,0 +1,44 @@
+cadastro = []
+dados = []
+cont = maior = menor = 0
+
+while True:
+    dados.append(str(input("Digite o nome: ")))
+    dados.append(int(input("Digite o peso: ")))
+    cadastro.append(dados[:])
+    dados.clear()   # --- limpa a lista 'dados' -------
+    cont += 1
+# ---- bloco de repetição de novo cadastro ---------
+    while True:
+        resp = input("Quer continuar? [S/N]").upper()
+        if resp in 'SN':
+            break
+        else:
+            print("\n>> Digite apenas as opções propostas <<\n")
+    if resp == 'N':
+        break
+print("\n", "=-="*6, ' R E S U M O ', "=-="*6, "\n")
+# ---- informa a quantidade de pessoas cadastradas + verificação dos maiores e menores pesos ---------
+if cont >= 2:
+    print(f'Ao todo você cadastrou {cont} pessoas')
+    maior = menor = cadastro[0][1]
+    for c in cadastro:
+        if c[1] >= maior:
+            maior = c[1]
+        if c[1] <= menor:
+            menor = c[1]
+    print(f'O maior peso foi de {maior} Kg.')
+    print(f'Pessoas cadastradas com esse peso: ', end=' ')  # -- elenca pessoas mais pesadas ---
+    for p in cadastro:
+        if p[1] == maior:
+            print(f'[{p[0]}]', end=' ')
+
+    print(f'\nO menor peso foi de {menor} Kg.')
+    print(f'Pessoas cadastradas com esse peso: ', end=' ')  # -- elenca pessoas menos pesadas ---
+    for p in cadastro:
+        if p[1] == menor:
+            print(f'[{p[0]}]', end=' ')
+# ---- informa caso haja apenas uma pessoa cadastrada ----------
+else:
+    print(f'Ao todo você cadastrou {cont} pessoa')
+    print(f'O único peso a ser informado no cadastro é de {cadastro[0][1]} Kg')
