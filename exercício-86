@@ -1,0 +1,37 @@
+'''Criação de matriz 3x3 utilizando listas e sublistas'''
+
+matriz = [[[], [], []], [[], [], []], [[], [], []]]
+for a in range(0, 3):
+    for b in range(0, 3):
+        num = int(input(f'Digite um valor para a posição [{a}][{b}]: '))
+        matriz[a][b].append(num)
+print("-="*30)
+for k in range(0, 3):
+    print(f'{matriz[k][0]} {matriz[k][1]} {matriz[k][2]}')
+# --- Total de 301 caracteres ----
+
+print()# --- Outra forma ----
+
+matriz = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+for a in range(0, 3):
+    for b in range(0, 3):
+        matriz[a][b] = int(input(f'Digite um valor para a posição [{a}][{b}]: '))
+print("-="*30)
+for l in range(0, 3):
+    for c in range(0, 3):
+        print(f'[{matriz[l][c]:^5}]', end='')
+    print()
+# --- Total de 293 caracteres ----
+
+print()# --- Outra foma ----
+
+matriz = [[],[],[]]
+for c in range(3):
+    for l in range(3):
+        matriz[c].append(int(input(f'Digite um valor para a posição [{c}][{l}]: ')))
+print("-="*30)
+for c in range(3):
+    print('\n',end='') if c > 0 else ''
+    for l in matriz[c]:
+        print(f'[{l:^5}]', end='')
+# --- Total de 279 caracteres ----
