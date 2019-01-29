@@ -1,0 +1,24 @@
+''' Exercício 86 com adicionais:
+    1) somar apenas números pares da matriz;
+    2) somar apenas a terceira coluna da matriz;
+    3) mostrar o maior valor da segunda coluna'''
+
+matriz = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+maior = pares = terceira = 0
+for a in range(0, 3):
+    for b in range(0, 3):
+        matriz[a][b] = int(input(f'Digite um valor para a posição [{a}][{b}]: '))
+        if matriz[a][b] % 2 == 0:
+            pares += matriz[a][b]
+        terceira += matriz[a][2]
+        if matriz[1][b] > maior:
+            maior = matriz[1][b]
+print("-="*30)
+for l in range(0, 3):
+    for c in range(0, 3):
+        print(f'[{matriz[l][c]:^5}]', end='')
+    print()
+print("-="*30)
+print(f'A soma dos valores pares é {pares}')
+print(f'A soma dos valores da terceira coluna é {terceira}')
+print(f'O maior valor da segunda linha é {maior}')
