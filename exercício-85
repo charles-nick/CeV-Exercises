@@ -1,0 +1,16 @@
+''' Gerar programa que separa números pares e ímpares em duas sublistas.
+    As sublistas devem estar dentro de uma lista principal'''
+
+princ = [[], []]
+
+for i in range(1, 8):
+    num = int(input("Digite o {}º valor: ".format(i)))
+    if num % 2 == 0:
+        princ[0].append(num)
+    else:
+        princ[1].append(num)
+princ[0].sort()
+princ[1].sort()
+print("-="*30)
+print(f'Os valores pares digitados foram: {princ[0]}')
+print(f'Os valores ímpares digitados foram: {princ[1]}')
