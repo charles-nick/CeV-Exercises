@@ -1,0 +1,41 @@
+''' Criar programa que palpite listas para a MEGA SENA'''
+
+from random import randint
+from time import sleep
+
+lista = []
+jogos = []
+cont = 0
+
+print('-'*40)
+print(f'{"JOGA NA MEGA SENA":^40}')
+print('-'*40)
+
+n = int(input(f'{">> Digite o nº de listas desejados: ":<40}'))
+print('-'*40)
+if n == 0:
+    print("Nenhum jogo solicitado")
+elif n == 1:
+    print(f'>> Sorteando {n} jogo')
+else:
+    print(f'>> Sorteando {n} jogos')
+print('-'*40)
+
+for j in range(0, n):
+    while True:
+        k = randint(1, 60)
+        if k not in lista:
+            lista.append(k)
+            cont += 1
+        if cont >= 6:
+            break
+    lista.sort()
+    jogos.append(lista[:])
+    lista.clear()
+    sleep(1)
+    print(f'Jogo {j+1}: {jogos[j]}')
+    cont = 0
+if n >= 1:
+    sleep(1)
+    print('-'*40)
+    print(f'{">>  BOA SORTE!  <<":^40}')
