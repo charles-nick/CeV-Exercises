@@ -38,7 +38,7 @@ for j in range(0, len(lista)):
 print('-='*25)
 while True:
     inf = int(input(f'\nMostrar notas de qual aluno? (999 interrompe)'))
-    if inf >= 1 and inf <= (len(lista) + 1):
+    if inf >= 1 and inf <= len(lista):
         inf -= 1
         print(f'>> Notas de {lista[inf][0]} são {lista[inf][1][0]} e {lista[inf][1][1]}')
     elif inf == 999:
