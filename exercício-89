@@ -1,0 +1,54 @@
+'''Programa é abastecido com dados de alunos, suas notas de bimestre e média obtida sobre as notas
+    Um quadro de alunos cadastrados com suas médias são elencadas para apreciação e posterior
+    questionamento para consulta das notas individuais dos alunos cadastrados.'''
+
+from time import sleep
+
+lista = []
+dados = []
+notas = []
+média = 0.0
+
+while True:
+    nome = str(input(f'Nome: '))
+    notas.append(float(input(f'Nota 1: ')))
+    notas.append(float(input(f'Nota 2: ')))
+    média = (notas[0] + notas[1])/2
+    dados.append(nome)
+    dados.append(notas[:])
+    notas.clear()
+    dados.append(média)
+    lista.append(dados[:])
+    dados.clear()
+    while True:
+        resp = input(f'Quer continuar [S/N]: ').upper()
+        if resp not in 'SN':
+             print("  >>  Digite apenas as opções informadas  <<  ")
+        else:
+            break
+    if resp == 'S':
+        print('-='*25)
+    if resp == 'N':
+        break
+print('-='*25)
+print(f'|{"Nº":^6}|{"NOME":^30}|{"MÉDIA":^10}|')
+print('-='*25)
+for j in range(0, len(lista)):
+    print(f'|{j+1:^6}| {lista[j][0]:<29}|{lista[j][2]:^10}|')
+print('-='*25)
+while True:
+    inf = int(input(f'\nMostrar notas de qual aluno? (999 interrompe)'))
+    if inf >= 1 and inf <= (len(lista) + 1):
+        inf -= 1
+        print(f'>> Notas de {lista[inf][0]} são {lista[inf][1][0]} e {lista[inf][1][1]}')
+    elif inf == 999:
+        print(f'FINALIZANDO', end='')
+        t = 0
+        for k in range(0, 20):
+            t = k/40
+            sleep(0.5-t)
+            print(f'.', end='')
+        print(f'\nVolte sempre!')
+        break
+    else:
+        print(f'  >>  O número {inf} não foi encontrado  <<  ')
