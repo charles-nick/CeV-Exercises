@@ -1,9 +1,9 @@
+from datetime import datetime
 dados = dict()
 
 dados['nome'] = str(input("Digite o nome: "))
 nasc = int(input("Digite o ano de nascimento: "))
-ano = 2018 - nasc
-dados['idade'] = ano
+dados['idade'] = datetime.now().year - nasc
 dados['ctps'] = int(input("Digite o número da CTPS (0 não tem): "))
 if dados['ctps'] == 0:
     print("-="*30)
@@ -13,8 +13,7 @@ if dados['ctps'] == 0:
 else:
     dados['contratação'] = int(input("Digite o ano de contratação: "))
     dados['salário'] = float(input("Digite o salário: R$ "))
-    aposent = (35 - (2018 - dados["contratação"])) + 2018
-    dados['aposentadoria'] = aposent
+    dados['aposentadoria'] = dados['idade'] + 35 - (datetime.now().year - dados['contratação'])
     print("-="*30)
     print(dados)
     for k, v in dados.items():
