@@ -1,0 +1,62 @@
+lista = []
+lista_mulheres = []
+lista_maior = []
+pessoa = {}
+soma_idade = 0
+média_idade = 0.0
+cont = 0
+
+while True:
+    pessoa['nome'] = str(input("Digite um nome: "))
+    while True:
+        sexo = str(input("Digite o sexo [M/F]: ")).upper()
+        if sexo == 'M':
+            pessoa['sexo'] = 'M'
+            break
+        elif sexo == 'F':
+            pessoa['sexo'] = 'F'
+            break
+        else:
+            print("\n  >>  Digite apenas uma das opções dadas  <<\n")
+    pessoa['idade'] = str(input("Digite a idade: "))
+    lista.append(pessoa.copy())
+    pessoa.clear()
+    while True:
+        resp = str(input("Quer continuar? [S/N] ")).upper()
+        if resp == 'S' or resp == 'N':
+            break
+        else:
+            print("\n  >>  Digite apenas uma das opções dadas  <<\n")
+    if resp == 'N':
+        break
+print('-='*25)
+if len(lista) == 1:
+    print(f'    - O grupo tem {len(lista)} pessoa')
+else:
+    print(f'    - O grupo tem {len(lista)} pessoas.')
+for n in range(0, len(lista)):
+    soma_idade = soma_idade + int(lista[n]['idade'])
+média_idade = soma_idade / len(lista)
+print(f'    - A média de idade é de {média_idade:.1f} anos.')
+for i in range(0, len(lista)):
+    if lista[i]['sexo'] == 'F':
+        cont+=1
+        lista_mulheres.append(lista[i]["nome"])
+if cont == 0:
+    print(f'    - Não existem mulheres cadastradas no grupo.')
+elif cont == 1:
+    print(f'    - A mulher cadastrada no grupo foi: {lista_mulheres}')
+else:
+    print(f'    - As mulheres cadastradas no grupo foram: {lista_mulheres}')
+print("-="*25)
+print("Lista das pessoas que estão acima da média de idade do grupo:")
+cont = 0
+for i in range(0, len(lista)):
+    if int(lista[i]['idade']) > média_idade:
+        print(f'\n    - {lista[i]["nome"]} com {lista[i]["idade"]}')
+    elif int(lista[i]["idade"]) == média_idade:
+        cont+=1
+if cont == len(lista):
+    print(f'\n    - Não existem pessoas com idade acima da média de idade do grupo\n')
+print("-="*25)
+print("\n >>   ENCERRADO   <<")
